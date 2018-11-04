@@ -3,6 +3,25 @@ package com.rock.algorithm.array;
 import java.util.Arrays;
 
 public class MoveZero {
+	
+	/**
+	 * use swap to move 0 to the end
+	 * */
+	public void moveZeroV2(int [] nums) {
+		if (nums == null || nums.length == 1) {
+			return;
+		}
+		int indexOf0 = indexOfFirstZero(nums, 0), tmp;
+		for (int i = indexOf0 + 1 ; i < nums.length ; i++) {
+			if ((nums[i] != 0) && (indexOf0 != -1) && (i != indexOf0)) {
+				tmp = nums[i];
+				nums[i] = nums[indexOf0];
+				nums[indexOf0] = tmp;
+				indexOf0 = i;
+			}
+		}
+	}
+	
 	public void moveZero(int [] nums) {
 		if (nums == null) {
 			return;
@@ -63,8 +82,8 @@ public class MoveZero {
 	}
 	
 	public static void main(String [] args) {
-		int [] nums = {1,0,0};
-		new MoveZero().moveZero(nums);
+		int [] nums = {0,2,1,4,0,1,0,0};
+		new MoveZero().moveZeroV2(nums);
 		System.out.println(Arrays.toString(nums));
 	}
 }
