@@ -46,6 +46,6 @@ public class Reverse {
 		return new StringBuffer(s).reverse().toString();
 	}
 	public static void main(String [] args) {
-		System.out.println(new Reverse().reverseV2(-2147483648));
+		System.out.println(new Reverse().reverseV2(-51));
 	}
 }
