@@ -34,6 +34,7 @@ public class RemoveNthFromEnd {
         for (int j = 0 ; j < n && first != null ; j++) {
         	first = first.next;
         }
+        // 删除了头节点
         if (first == null) {
         	ret = ret.next;
         	return ret;
